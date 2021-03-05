@@ -9,3 +9,14 @@ function fetchPokemonData() {
 }
 
 /* Code goes below */
+let pokemonData = JSON.parse(fetchPokemonData());
+console.log(pokemonData);
+
+const spriteItems = Object.values(pokemonData.sprites);
+const images = spriteItems.filter(image => image != null);
+const addImage = images.map(image => {
+  spriteImage = document.createElement('img');
+  spriteImage.src = image;
+  spriteImage.width = 550;
+  document.body.appendChild(spriteImage);
+});
